@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi amada Paula</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Montserrat', sans-serif;
+      background: radial-gradient(circle at top, #1b1b1f, #0f0f12);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #eaeaea;
+    }
+
+    .container {
+      position: relative;
+      width: 92%;
+      max-width: 760px;
+      padding: 30px;
+      border-radius: 22px;
+      background:
+        linear-gradient(rgba(255,255,255,0.03), rgba(255,255,255,0.03)),
+        url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+      box-shadow: 0 30px 70px rgba(0,0,0,0.6);
+      animation: fadeIn 1.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      color: #f1b7cf;
+      margin-bottom: 25px;
+      letter-spacing: 1px;
+    }
+
+    /* Contraseña */
+    .password-box {
+      text-align: center;
+    }
+
+    input {
+      padding: 12px;
+      width: 70%;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+      margin-bottom: 15px;
+      outline: none;
+    }
+
+    button {
+      padding: 12px 30px;
+      border: none;
+      border-radius: 25px;
+      background: #f1b7cf;
+      color: #2b1d22;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: #e59bbb;
+      transform: scale(1.05);
+    }
+
+    .error {
+      color: #ff9aac;
+      margin-top: 10px;
+      display: none;
+    }
+
+    .content {
+      display: none;
+    }
+
+    /* Carta */
+    .letter {
+      background:
+        linear-gradient(#faf7f4, #f3eee9),
+        url("https://www.transparenttextures.com/patterns/subtle-white-feathers.png");
+      color: #3b2f2f;
+      padding: 35px;
+      border-radius: 16px;
+      box-shadow: inset 0 0 40px rgba(0,0,0,0.08);
+      max-height: 65vh;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .letter p {
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    /* Foto */
+    .photo {
+      display: flex;
+      justify-content: center;
+      margin: 25px 0 30px;
+    }
+
+    .photo img {
+      width: 220px;
+      max-width: 100%;
+      border-radius: 18px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    }
+
+    .signature {
+      margin-top: 30px;
+      text-align: right;
+      font-style: italic;
+      color: #7a4a5a;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- CONTRASEÑA -->
+    <div class="password-box" id="lock">
+      <h1>Para Mi Amor Bello</h1>
+      <p>Solo tú puedes estrar aquí</p>
+      <input type="password" id="password" placeholder="Nuestra Contraseña">
+      <br>
+      <button onclick="checkPassword()">Entrar</button>
+      <div class="error" id="error">Buen intento Sherlock, pero no es la contraseña 💔</div>
+    </div>
+
+    <!-- CARTA -->
+    <div class="content" id="content">
+      <h1>Mi amada Paula💗</h1>
+
+      <div class="letter">
+
+        <!-- FOTO -->
+        <div class="photo">
+          <img src="./foto.jpg" alt="Nosotros">
+        </div>
+
+        <p>
+          Mi amada novia, este corto tiempo que llevamos juntos ha sido lo suficientemente especial para darme cuenta de que te quiero a mi lado, pase lo que pase. Me importan muy poco los posibles impedimentos que alguien podría nombrar. ¿Puedes creer que ya casi llevamos dos meses? Hay algo muy mágico en ello, algo que no voy a echar a perder.
+        </p>
+
+        <p>
+          Quería darte un detalle, algo de eso que tanto te gusta, lleno de códigos que no siempre entiendo, pero que me acercan más a ti. Así te comprendo mejor y aprendo más de ti. Eres una persona muy valiente y profundamente inteligente.
+        </p>
+
+        <p>
+          Gracias por estar conmigo en esta aventura tan loca, llena de huecos, pero también de amor para rellenarlos. Eres mi amor bello.
+        </p>
+
+        <p>
+          La verdad no me importa San Valentín, pero me pareció el momento perfecto para recordarte que eres todo lo que quiero y que quiero ser eso mismo para ti.
+        </p>
+
+        <div class="signature">
+          — De parte de tu noviecito 💕
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function checkPassword() {
+      const input = document.getElementById("password").value;
+      const error = document.getElementById("error");
+
+      if (input === "teamo") { // cambia la contraseña aquí
+        document.getElementById("lock").style.display = "none";
+        document.getElementById("content").style.display = "block";
+      } else {
+        error.style.display = "block";
+      }
+    }
+  </script>
+
+</body>
+</html>
